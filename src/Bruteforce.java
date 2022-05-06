@@ -7,7 +7,7 @@ public class Bruteforce {
     public static void bruteforceAttack(String nameOfInputFile, String nameOfOutputFile) throws IOException {
 
         ArrayList<String> text = new ArrayList<String>();
-        try (Scanner scanner = new Scanner(new File("russian.txt"))) {
+        try (Scanner scanner = new Scanner(new File("dictionary.txt"))) {
             while (scanner.hasNextLine()) {
                 text.add(scanner.nextLine());
             }
