@@ -1,3 +1,5 @@
+package cryptoanalyzer;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,7 +19,7 @@ public class Bruteforce {
 
         search:
         for (int i = 0; i < cryptoAnalyzer.alphabet.length; i++) {
-            Decryptor.Decryption(nameOfInputFile, nameOfOutputFile, i);
+            Decryption.decode(nameOfInputFile, nameOfOutputFile, i);
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(nameOfOutputFile)))) {
                 int c;
                 ArrayList charsInText = new ArrayList();

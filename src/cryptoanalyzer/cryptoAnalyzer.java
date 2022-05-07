@@ -1,5 +1,9 @@
+package cryptoanalyzer;
+
 import java.io.*;
 import java.util.Scanner;
+
+import static java.lang.System.*;
 
 public class cryptoAnalyzer {
     static char[] alphabet = {'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н',
@@ -8,19 +12,19 @@ public class cryptoAnalyzer {
 
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Введите желаемое действие");
-        System.out.println("1. Шифрование");
-        System.out.println("2. Расшифровка");
-        System.out.println("3. Криптоанализ путём bruteforce");
-        Scanner console = new Scanner(System.in);
+        out.println("Введите желаемое действие");
+        out.println("1. Шифрование");
+        out.println("2. Расшифровка");
+        out.println("3. Криптоанализ путём bruteforce");
+        Scanner console = new Scanner(in);
         int choose = console.nextInt();
-        while (choose > 3 | choose < 1) {
-            System.out.println("Повторите ввод");
+        while (choose > 3 || choose < 1) {
+            out.println("Повторите ввод");
             choose = console.nextInt();
         }
         if (choose == 1) {
-            Scanner console1 = new Scanner(System.in);
-            System.out.println("Имя входного файла");
+            Scanner console1 = new Scanner(in);
+            out.println("Имя входного файла");
             String nameOfInputFile = console1.nextLine();
             File fileInput = new File(nameOfInputFile);
             String pathName = fileInput.getParent();
@@ -34,13 +38,13 @@ public class cryptoAnalyzer {
                 fileOutput.createNewFile();
             }
             String nameOfOutputFile = fileOutput.getAbsolutePath();
-            System.out.println("сдвиг для шифрования");
+            out.println("сдвиг для шифрования");
             int shift = console1.nextInt();
-            Encrypter.Encryption(nameOfInputFile, nameOfOutputFile, shift);
+            Encryption.encode(nameOfInputFile, nameOfOutputFile, shift);
 
         } else if (choose == 2) {
-            Scanner console1 = new Scanner(System.in);
-            System.out.println("Имя входного файла");
+            Scanner console1 = new Scanner(in);
+            out.println("Имя входного файла");
             String nameOfInputFile = console1.nextLine();
             File fileInput = new File(nameOfInputFile);
             String pathName = fileInput.getParent();
@@ -54,17 +58,17 @@ public class cryptoAnalyzer {
                 fileOutput.createNewFile();
             }
             String nameOfOutputFile = fileOutput.getAbsolutePath();
-            System.out.println("сдвиг для шифрования");
+            out.println("сдвиг для шифрования");
             int shift = console1.nextInt();
-            Decryptor.Decryption(nameOfInputFile, nameOfOutputFile, shift);
+            Decryption.decode(nameOfInputFile, nameOfOutputFile, shift);
         } else if (choose == 3) {
-            Scanner console1 = new Scanner(System.in);
-            System.out.println("Имя входного файла");
+            Scanner console1 = new Scanner(in);
+            out.println("Имя входного файла");
             String nameOfInputFile = console1.nextLine();
             File fileInput = new File(nameOfInputFile);
             String pathName = fileInput.getParent();
             while (!fileInput.exists()) {
-                System.out.println("Файл не существует");
+                out.println("Файл не существует");
                 nameOfInputFile = console1.nextLine();
                 fileInput = new File(nameOfInputFile);
                 pathName = fileInput.getParent();
