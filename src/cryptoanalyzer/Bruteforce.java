@@ -8,7 +8,7 @@ public class Bruteforce {
 
     public static void bruteforceAttack(String nameOfInputFile, String nameOfOutputFile) throws IOException {
 
-        ArrayList<String> text = new ArrayList<String>();
+        ArrayList<String> text = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File("dictionary.txt"))) {
             while (scanner.hasNextLine()) {
                 text.add(scanner.nextLine());
@@ -18,11 +18,11 @@ public class Bruteforce {
         }
 
         search:
-        for (int i = 0; i < cryptoAnalyzer.alphabet.length; i++) {
+        for (int i = 0; i < CryptoAnalyzer.alphabet.length; i++) {
             Decryption.decode(nameOfInputFile, nameOfOutputFile, i);
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(nameOfOutputFile)))) {
                 int c;
-                ArrayList charsInText = new ArrayList();
+                ArrayList<Character> charsInText = new ArrayList<>();
                 while ((c = reader.read()) != -1) {
                     char character = Character.toLowerCase((char) c);
                     charsInText.add(character);
@@ -32,16 +32,15 @@ public class Bruteforce {
                     while (scanner.hasNextLine()) {
                         str = scanner.nextLine().split(" ");
                     }
-
-                    if (str.length > 0) {
-                        for (int i1 = 0; i1 < str.length; i1++) {
-                            for (int k = 0; k < text.size(); k++) {
-                                if (str[i1].equalsIgnoreCase(text.get(k))) {
+                    if (str.length > 1) {
+                        for (String value : str) {
+                            for (String s : text) {
+                                if (value.equalsIgnoreCase(s)) {
                                     break search;
                                 }
                             }
                         }
-                    } else if (((double) (charsInText.size() / str.length) >= 3 && (double) (charsInText.size() / str.length) < 7)) {
+                    } else if (charsInText.size() / str.length >= 3 && charsInText.size() / str.length < 7) {
                         {
                             break search;
                         }
@@ -51,6 +50,7 @@ public class Bruteforce {
                 }
             }
         }
+
     }
 }
 

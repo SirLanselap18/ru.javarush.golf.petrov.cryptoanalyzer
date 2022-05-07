@@ -5,11 +5,10 @@ import java.util.Scanner;
 
 import static java.lang.System.*;
 
-public class cryptoAnalyzer {
+public class CryptoAnalyzer {
     static char[] alphabet = {'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н',
             'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я',
             '.', ',', '”', ':', '-', '!', '?', ' '};
-
 
     public static void main(String[] args) throws IOException {
         out.println("Введите желаемое действие");
@@ -83,6 +82,9 @@ public class cryptoAnalyzer {
 
 
     }
+
+
 }
+
 
 
