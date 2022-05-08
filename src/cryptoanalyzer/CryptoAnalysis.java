@@ -7,7 +7,6 @@ import static java.lang.System.*;
 
 public class CryptoAnalysis {
 
-
     public static void main(String[] args) throws IOException {
         out.println("Введите желаемое действие");
         out.println("1. Шифрование");
