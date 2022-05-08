@@ -7,17 +7,17 @@ public class Encryption {
     public static void encode(String nameOfInputFile, String nameOfOutputFile, int shift) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(nameOfInputFile)));
              FileWriter fileWriter = new FileWriter(nameOfOutputFile)) {
-            shift %= CryptoAnalyzer.alphabet.length;
+            shift %= CollectionData.alphabet.length;
             int c;
             while ((c = reader.read()) != -1) {
                 char character = Character.toLowerCase((char) c);
                 char characterCipher = character;
-                for (int i = 0; i < CryptoAnalyzer.alphabet.length; i++) {
-                    if (CryptoAnalyzer.alphabet[i] == character) {
-                        if (i + shift < CryptoAnalyzer.alphabet.length) {
-                            characterCipher = CryptoAnalyzer.alphabet[i + shift];
+                for (int i = 0; i < CollectionData.alphabet.length; i++) {
+                    if (CollectionData.alphabet[i] == character) {
+                        if (i + shift < CollectionData.alphabet.length) {
+                            characterCipher = CollectionData.alphabet[i + shift];
                         } else {
-                            characterCipher = CryptoAnalyzer.alphabet[i + shift - CryptoAnalyzer.alphabet.length];
+                            characterCipher = CollectionData.alphabet[i + shift - CollectionData.alphabet.length];
                         }
                     }
                 }
