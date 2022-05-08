@@ -39,6 +39,14 @@ public class Bruteforce {
                     for (String value : str) {
                         for (String s : text) {
                             if (value.equalsIgnoreCase(s)) {
+                                out.println("Bruteforce завершён. Первые символы текста выглядят так:");
+                                if (stringBuilder.length() < 15) {
+                                    out.println(stringBuilder.substring(0, stringBuilder.length()));
+                                } else {
+                                    out.println(stringBuilder.substring(0, 14));
+                                }
+                                out.println("Если результат неудовлетворительный, введите 1 для ручного подбора" +
+                                        " или любую другую цифру для завершения работы");
                                 break search;
                             }
                         }
@@ -49,7 +57,7 @@ public class Bruteforce {
             }
         }
 
-        out.println("Bruteforce завершён. Если результат неудовлетворительный, введите 1 для ручного подбора");
+
         Scanner console = new Scanner(in);
         if (console.nextInt() == 1) {
             for (int i = 0; i < CollectionData.alphabet.length; i++) {
