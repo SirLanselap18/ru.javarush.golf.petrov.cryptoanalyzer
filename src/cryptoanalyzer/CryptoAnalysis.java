@@ -20,11 +20,11 @@ public class CryptoAnalysis {
         }
         if (choose == 1) {
             String inputFile = CollectionData.collectNameInput();
-            Encryption.encode(inputFile, CollectionData.collectNameOutput(inputFile), CollectionData.shift());
+            Encryption.encode(inputFile, CollectionData.collectNameOutput(inputFile), CollectionData.collectShift());
         } else if (choose == 2) {
             String inputFile = CollectionData.collectNameInput();
-            Decryption.decode(inputFile, CollectionData.collectNameOutput(inputFile), CollectionData.shift());
-        } else if (choose == 3) {
+            Decryption.decode(inputFile, CollectionData.collectNameOutput(inputFile), CollectionData.collectShift());
+        } else {
             String inputFile = CollectionData.collectNameInput();
             Bruteforce.bruteforceAttack(inputFile, CollectionData.collectNameOutput(inputFile));
         }

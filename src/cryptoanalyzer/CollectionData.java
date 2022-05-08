@@ -11,7 +11,7 @@ public class CollectionData {
             'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я',
             '.', ',', '”', ':', '-', '!', '?', ' '};
 
-    public static String collectNameInput () {
+    public static String collectNameInput() {
         out.println("Имя входного файла");
         Scanner console1 = new Scanner(in);
         String nameOfInputFile = console1.nextLine();
@@ -23,7 +23,7 @@ public class CollectionData {
         return nameOfInputFile;
     }
 
-    public static String collectNameOutput (String nameOfInputFile) throws IOException {
+    public static String collectNameOutput(String nameOfInputFile) throws IOException {
         File fileInput = new File(nameOfInputFile);
         String pathName = fileInput.getParent();
         File fileOutput = new File(pathName + "\\output");
@@ -33,7 +33,7 @@ public class CollectionData {
         return fileOutput.getAbsolutePath();
     }
 
-    public static int shift() {
+    public static int collectShift() {
         Scanner console1 = new Scanner(in);
         out.println("сдвиг для шифрования");
         return console1.nextInt();

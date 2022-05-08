@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import static java.lang.System.*;
 
-
 public class Bruteforce {
 
     public static void bruteforceAttack(String nameOfInputFile, String nameOfOutputFile) throws IOException {
@@ -30,25 +29,26 @@ public class Bruteforce {
                     char character = Character.toLowerCase((char) c);
                     charsInText.add(character);
                 }
-                try (Scanner scanner = new Scanner(new File(nameOfOutputFile))) {
-                    String[] str = new String[charsInText.size() / 3];
-                    while (scanner.hasNextLine()) {
-                        str = scanner.nextLine().split(" ");
-                    }
-                    if (str.length > 0) {
-                        for (String value : str) {
-                            for (String s : text) {
-                                if (value.equalsIgnoreCase(s)) {
-                                    break search;
-                                }
+                StringBuilder stringBuilder = new StringBuilder(charsInText.size());
+                for (Character character : charsInText) {
+                    stringBuilder.append(character.charValue());
+                }
+                String[] str = stringBuilder.toString().split(" ");
+
+                if (str.length > 0) {
+                    for (String value : str) {
+                        for (String s : text) {
+                            if (value.equalsIgnoreCase(s)) {
+                                break search;
                             }
                         }
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+
         out.println("Bruteforce завершён. Если результат неудовлетворительный, введите 1 для ручного подбора");
         Scanner console = new Scanner(in);
         if (console.nextInt() == 1) {
@@ -65,10 +65,10 @@ public class Bruteforce {
                     for (Character character : charsInText) {
                         stringBuilder.append(character.charValue());
                     }
-                    if (stringBuilder.length()<15) {
-                        out.println("Вариант " + i + ":" + stringBuilder.substring(0,stringBuilder.length()));
+                    if (stringBuilder.length() < 15) {
+                        out.println("Вариант " + i + ":" + stringBuilder.substring(0, stringBuilder.length()));
                     } else {
-                        out.println("Вариант " + i + ":" + stringBuilder.substring(0,14));
+                        out.println("Вариант " + i + ":" + stringBuilder.substring(0, 14));
                     }
                 }
             }
